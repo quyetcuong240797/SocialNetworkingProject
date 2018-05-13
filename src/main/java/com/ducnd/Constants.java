@@ -19,4 +19,6 @@ public interface Constants {
     int STATUS_CODE_TOKEN_IN_VALID = 10;
     int STATUS_CODE_EXPIRED_TOKEN = 20;
     int STATUS_CODE_USERNAME_OR_PASSWORD_INVALID = 30;
+
+    int STATUS_ERROR_PARAM = 100;
 }

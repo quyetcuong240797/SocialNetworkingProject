@@ -27,7 +27,7 @@ public class Utils {
                 .setExpiration(new Date(date.getTime() + Constants.TIME_TOKEN_EXPIRE))
                 .signWith(
                         SignatureAlgorithm.HS256,
-                        TextCodec.BASE64.decode(key)
+                        TextCodec.BASE64.encode(key)
                 )
                 .compact();
         return jws;
