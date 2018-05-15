@@ -2,8 +2,11 @@ package com.ducnd.controller;
 
 import com.ducnd.Constants;
 import com.ducnd.manager.UserManager;
+import com.ducnd.model.request.LoginRequest;
 import com.ducnd.model.request.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,4 +23,14 @@ public class UserController {
             ){
         return userManager.register(request);
     }
+
+    @PostMapping(Constants.ENPOINT_LOGIN)
+    public Object login(
+            @RequestBody LoginRequest request
+    ){
+        return  userManager.login(request);
+    }
+
+
+
 }
