@@ -28,7 +28,7 @@ public class UserController {
     }
 
 @PutMapping(Constants.ENPOINT_UPDATEUSER)
-public Object updateUser(@RequestParam("username") String username,@Valid @RequestBody UserProfile upDate){
+public Object updateUser(@PathVariable(value = "username") String username,@Valid @RequestBody UserProfile upDate){
         return userManager.updateUser(username,upDate);
     //return ResponseUtils.getBaseResponse(Constants.STATUS_CODE_SUCCESS,"update ok");
 }

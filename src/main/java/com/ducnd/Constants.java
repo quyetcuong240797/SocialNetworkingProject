@@ -6,8 +6,8 @@ package com.ducnd;
 public interface Constants {
     String KEY_TOKEN = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
     String ENPOINT_LOGIN = "/auth/login";
-//    String ENPOINT_UPDATEUSER = "/auth/update{username}/{city}";
-String ENPOINT_UPDATEUSER = "/auth/update{username}";
+//    String ENPOINT_UPDATEUSER = "/auth/update{username}/{city}";//@RequestParam
+String ENPOINT_UPDATEUSER = "/auth/update/{username}";//@PathVariable
     String ENPOINT_REGISTER = "/auth/register";
     String ENPOINT_FINDUSER = "/auth/finduser";
     String ENPOINT_MATCH_API = "/api/**";
