@@ -70,7 +70,7 @@ public class UserManager extends BaseManager {
         userProfile.setJob(record.getJob());
         userProfile.setToken(record.getToken());
         return ResponseUtils.getBaseResponse(userProfile);
-        //   return userProfile;
+        
     }
 
 
