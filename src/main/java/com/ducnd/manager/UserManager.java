@@ -70,7 +70,7 @@ public class UserManager extends BaseManager {
         userProfile.setJob(record.getJob());
         userProfile.setToken(record.getToken());
         return ResponseUtils.getBaseResponse(userProfile);
-        
+
     }
 
 
@@ -83,7 +83,7 @@ public class UserManager extends BaseManager {
                 set(UserProfile.USER_PROFILE.SEX, userProfileUpdate.getSex())
                 .set(UserProfile.USER_PROFILE.TOKEN, Utils.getToken(userProfileUpdate.getToken(),
                         environment.getProperty("demo.security.jwt.tokenSigningKey")))
-                .where(UserProfile.USER_PROFILE.USERNAME.eq(username)).execute();
+                .where(UserProfile.USER_PROFILE.USERNAME.eq(username)).returning().execute();
         return ResponseUtils.getBaseResponse(userProfileUpdate);
     }
 }

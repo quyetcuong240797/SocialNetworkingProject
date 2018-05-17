@@ -9,7 +9,7 @@ public interface Constants {
 //    String ENPOINT_UPDATEUSER = "/auth/update{username}/{city}";//@RequestParam
 String ENPOINT_UPDATEUSER = "/auth/update/{username}";//@PathVariable
     String ENPOINT_REGISTER = "/auth/register";
-    String ENPOINT_FINDUSER = "/auth/finduser";
+    String ENPOINT_FINDUSER = "/auth/find_user";
     String ENPOINT_MATCH_API = "/api/**";
     long TIME_TOKEN_EXPIRE = 3600000000L;
     int STATUS_CODE_SUCCESS = 0;
