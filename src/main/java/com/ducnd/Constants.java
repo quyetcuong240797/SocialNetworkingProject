@@ -6,7 +6,10 @@ package com.ducnd;
 public interface Constants {
     String KEY_TOKEN = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
     String ENPOINT_LOGIN = "/auth/login";
+//    String ENPOINT_UPDATEUSER = "/auth/update{username}/{city}";
+String ENPOINT_UPDATEUSER = "/auth/update{username}";
     String ENPOINT_REGISTER = "/auth/register";
+    String ENPOINT_FINDUSER = "/auth/finduser";
     String ENPOINT_MATCH_API = "/api/**";
     long TIME_TOKEN_EXPIRE = 3600000000L;
     int STATUS_CODE_SUCCESS = 0;

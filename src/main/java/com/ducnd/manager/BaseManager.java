@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class BaseManager {
     @Autowired
     protected DSLContext dslContext;
-
-
     public DSLContext getDslContext(){
         return dslContext;
     }

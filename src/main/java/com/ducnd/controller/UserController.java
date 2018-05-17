@@ -2,15 +2,13 @@ package com.ducnd.controller;
 
 import com.ducnd.Constants;
 import com.ducnd.manager.UserManager;
-import com.ducnd.model.request.LoginRequest;
 import com.ducnd.model.request.RegisterRequest;
+import com.ducnd.model.response.ResponseUtils;
+import com.ducnd.tables.pojos.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 public class UserController {
@@ -24,13 +22,15 @@ public class UserController {
         return userManager.register(request);
     }
 
-    @PostMapping(Constants.ENPOINT_LOGIN)
-    public Object login(
-            @RequestBody LoginRequest request
-    ){
-        return  userManager.login(request);
+    @GetMapping(Constants.ENPOINT_FINDUSER)
+    public Object getUser(@RequestParam ("username") String username){
+        return  userManager.findUser(username);
     }
 
-
+@PutMapping(Constants.ENPOINT_UPDATEUSER)
+public Object updateUser(@RequestParam("username") String username,@Valid @RequestBody UserProfile upDate){
+        return userManager.updateUser(username,upDate);
+    //return ResponseUtils.getBaseResponse(Constants.STATUS_CODE_SUCCESS,"update ok");
+}
 
 }

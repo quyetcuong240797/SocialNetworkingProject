@@ -34,7 +34,8 @@ public class AjaxAuthenLoginProvider implements AuthenticationProvider {
         if (!new BCryptPasswordEncoder().matches(authenLogin.getCredentials(), userRecord.getPassword())) {
             throw new AuthenticationServiceException("password incorrect");
         }
-        baseManager.getDslContext().update(UserProfile.USER_PROFILE).set(UserProfile.USER_PROFILE.TOKEN, authenLogin.getPrincipal().getToken()).where(UserProfile.USER_PROFILE.ID.eq(userRecord.getId())).execute();
+        baseManager.getDslContext().update(UserProfile.USER_PROFILE).
+                set(UserProfile.USER_PROFILE.TOKEN, authenLogin.getPrincipal().getToken()).where(UserProfile.USER_PROFILE.ID.eq(userRecord.getId())).execute();
         return new UsernamePasswordAuthenticationToken(
                 authenLogin.getPrincipal(),
                 authenLogin.getCredentials(),
@@ -46,4 +47,6 @@ public class AjaxAuthenLoginProvider implements AuthenticationProvider {
         return aClass.equals(
                 AjaxAuthenLogin.class);
     }
+
+
 }
