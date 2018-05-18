@@ -3,6 +3,7 @@ package com.ducnd.manager;
 import com.ducnd.Constants;
 import com.ducnd.model.request.LoginRequest;
 import com.ducnd.model.request.RegisterRequest;
+import com.ducnd.model.request.UpdateUserRequest;
 import com.ducnd.model.response.MessageResponse;
 import com.ducnd.model.response.ResponseUtils;
 import com.ducnd.model.response.response.LoginResponse;
@@ -74,16 +75,14 @@ public class UserManager extends BaseManager {
     }
 
 
-    public Object updateUser(String username, com.ducnd.tables.pojos.UserProfile userProfileUpdate) {
+    public Object saveUser(String username, UpdateUserRequest userProfileUpdate) {
         dslContext.update(UserProfile.USER_PROFILE).
                 set(UserProfile.USER_PROFILE.AVATAR, userProfileUpdate.getAvatar()).
                 set(UserProfile.USER_PROFILE.BIRTHDAY, userProfileUpdate.getBirthday()).
                 set(UserProfile.USER_PROFILE.CITY, userProfileUpdate.getCity()).
                 set(UserProfile.USER_PROFILE.JOB, userProfileUpdate.getJob()).
                 set(UserProfile.USER_PROFILE.SEX, userProfileUpdate.getSex())
-                .set(UserProfile.USER_PROFILE.TOKEN, Utils.getToken(userProfileUpdate.getToken(),
-                        environment.getProperty("demo.security.jwt.tokenSigningKey")))
                 .where(UserProfile.USER_PROFILE.USERNAME.eq(username)).returning().execute();
-        return ResponseUtils.getBaseResponse(userProfileUpdate);
+        return ResponseUtils.getBaseResponse(Constants.STATUS_CODE_SUCCESS,"update ok");
     }
 }

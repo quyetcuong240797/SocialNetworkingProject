@@ -7,7 +7,7 @@ public interface Constants {
     String KEY_TOKEN = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
     String ENPOINT_LOGIN = "/auth/login";
 //    String ENPOINT_UPDATEUSER = "/auth/update{username}/{city}";//@RequestParam
-String ENPOINT_UPDATEUSER = "/auth/update/{username}";//@PathVariable
+String ENPOINT_SAVEUSER = "/auth/saveuser/{username}";//@PathVariable
     String ENPOINT_REGISTER = "/auth/register";
     String ENPOINT_FINDUSER = "/auth/find_user";
     String ENPOINT_MATCH_API = "/api/**";
